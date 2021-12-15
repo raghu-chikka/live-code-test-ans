@@ -1,0 +1,31 @@
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
+const TechStories = () => {
+  const [newData, setNewData] = useState([]);
+  const fetchingHackerStories = async () => {
+    const result = await axios
+      .get("https://hacker-news.firebaseio.com/v0/showstories.json")
+      .then((response) => response.data)
+      .then((result) => console.log(result))
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    fetchingHackerStories();
+  }, []);
+
+  return (
+    <>
+      <div>
+        <ul>
+          {newData.map((items) => (
+            <li key={items.id}>{items} </li>
+          ))}
+        </ul>
+      </div>
+    </>
+  );
+};
+
+export default TechStories;
