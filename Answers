@@ -44,7 +44,7 @@ console.log(array2.reduce(reducer, 0));
 
 # 8
 
-const { x.A[2] } = A_2;
+const { A[2] } = A_2;
 
 
 
